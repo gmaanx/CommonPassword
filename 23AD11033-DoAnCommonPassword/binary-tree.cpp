@@ -138,12 +138,12 @@ BinaryNode* insertNode(BinaryNode* root, Passwords newPass)
 }
 BinaryNode* passWordCheck(BinaryNode* node, const string& passcheck) 
 {
-    if (node == nullptr) return nullptr;  // Nếu nút trống, trả về nullptr
+    if (node == NULL) return NULL;  // Nếu nút trống, trả về nullptr
     if (node->data.password == passcheck) return node;  // Nếu tìm thấy mật khẩu, trả về con trỏ đến nút
 
     // Duyệt cây theo chiều sâu (DFS)
     BinaryNode* leftResult = passWordCheck(node->left, passcheck);
-    if (leftResult != nullptr) return leftResult;  // Nếu tìm thấy ở cây trái, trả về kết quả
+    if (leftResult != NULL) return leftResult;  // Nếu tìm thấy ở cây trái, trả về kết quả
 
     return passWordCheck(node->right, passcheck);  // Tìm tiếp ở cây phải
 }
@@ -640,8 +640,8 @@ void Menu(BinaryNode* root, const string& filename)
             system("cls");
             break;*/
             Passwords pass;
-            std::cout << "Enter password: ";
-            std::cin >> pass.password;
+            cout << "Enter password: ";
+            cin >> pass.password;
 
             // Tính toán các thông số của mật khẩu
             calculatePasswordStats(pass);
