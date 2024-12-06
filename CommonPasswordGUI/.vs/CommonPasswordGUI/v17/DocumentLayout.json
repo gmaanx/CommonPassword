@@ -1,0 +1,155 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|c:\\users\\windows\\desktop\\doandsa\\commonpasswordgui\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:graphform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\showform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:showform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\passwordmanageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:passwordmanageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\passwordmanageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:passwordmanageform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\editform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:editform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\findform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:findform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\showform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD20FF22-511A-452E-A7F7-74099E609EC1}|CommonPasswordGUI.csproj|solutionrelative:showform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GraphForm.cs",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\GraphForm.cs",
+              "RelativeDocumentMoniker": "GraphForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\GraphForm.cs",
+              "RelativeToolTip": "GraphForm.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAuwEgAAABpAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T07:20:09.104Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GraphForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\GraphForm.cs",
+              "RelativeDocumentMoniker": "GraphForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\GraphForm.cs [Design]",
+              "RelativeToolTip": "GraphForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T07:01:54.609Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ShowForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\ShowForm.cs",
+              "RelativeDocumentMoniker": "ShowForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\ShowForm.cs [Design]",
+              "RelativeToolTip": "ShowForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T03:55:14.704Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EditForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\EditForm.cs",
+              "RelativeDocumentMoniker": "EditForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\EditForm.cs [Design]",
+              "RelativeToolTip": "EditForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T03:56:19.924Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "FindForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\FindForm.cs",
+              "RelativeDocumentMoniker": "FindForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\FindForm.cs [Design]",
+              "RelativeToolTip": "FindForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T03:55:54.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PasswordManageForm.cs",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\PasswordManageForm.cs",
+              "RelativeDocumentMoniker": "PasswordManageForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\PasswordManageForm.cs",
+              "RelativeToolTip": "PasswordManageForm.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAawEkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T02:14:37.661Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PasswordManageForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\PasswordManageForm.cs",
+              "RelativeDocumentMoniker": "PasswordManageForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\PasswordManageForm.cs [Design]",
+              "RelativeToolTip": "PasswordManageForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T01:39:54.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ShowForm.cs",
+              "DocumentMoniker": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\ShowForm.cs",
+              "RelativeDocumentMoniker": "ShowForm.cs",
+              "ToolTip": "C:\\Users\\Windows\\Desktop\\DoAnDSA\\CommonPasswordGUI\\ShowForm.cs",
+              "RelativeToolTip": "ShowForm.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAD4v0AAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-05T04:06:25.21Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{778b5376-ad77-4751-acdc-f3d18343f8dd}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

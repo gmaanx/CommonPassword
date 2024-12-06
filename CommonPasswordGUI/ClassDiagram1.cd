@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CommonPasswordGUI.Password">
+    <Position X="2" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAgAAAMAggUgAAIBAAhAAAIAAgAgAAgAAADA=</HashCode>
+      <FileName>Password.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CommonPasswordGUI.BinaryNode">
+    <Position X="3.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAACAAEIABAACEiQAAAAgAA=</HashCode>
+      <FileName>BinaryNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CommonPasswordGUI.BinaryTree">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUAgAAAAgCAAAAAgAAACAAkAEAAAAEAZAAAAAQA=</HashCode>
+      <FileName>BinaryTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CommonPasswordGUI.ManagePassword">
+    <Position X="7.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAQAQEAAAAAAAAAAAAIABAAAAA=</HashCode>
+      <FileName>ManagePassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
