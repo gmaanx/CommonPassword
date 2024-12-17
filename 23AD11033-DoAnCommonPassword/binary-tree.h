@@ -34,12 +34,13 @@ BinaryNode* newNode(const Passwords& pass);
 BinaryNode* insertBinaryNode(BinaryNode* root, Passwords& pass);
 Passwords createObject(const string& s);
 void readFileAndInsert(BinaryNode*& root, const string& filePath);
-void printPasswordsList(BinaryNode* root, int start, int end, int& currentIndex, Passwords arr[]);
+void printPasswordsListPaged(BinaryNode* root, int totalRecords, int recordsPerPage);
 // 2. 
 void flattenTreeToArray(BinaryNode* root, Passwords* arr, int& index, int limit);
 Passwords* treeToArray(BinaryNode* root, int limit);
 BinaryNode* insertNode(BinaryNode* root, Passwords newPass);
-BinaryNode* passWordCheck(BinaryNode* node, const string& passcheck);
+bool containsSubstring(const string& password, const string& substring);
+void passwordCheck(BinaryNode* node, const string& substring);
 void inOrderPrint(BinaryNode* root);
 int partition(Passwords arr[], int low, int high);
 void quickSort(Passwords arr[], int low, int high);

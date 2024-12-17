@@ -88,19 +88,85 @@ void readFileAndInsert(BinaryNode*& root, const string& filePath)
     input.close();
 }
 
-void printPasswordsList(BinaryNode* root, int start, int end, int& currentIndex, Passwords arr[]) 
-{
-    if (!root || currentIndex >= end) return;
+void printPasswordsListPaged(BinaryNode* root, int totalRecords, int recordsPerPage) {
+    int totalPages = (totalRecords + recordsPerPage - 1) / recordsPerPage; // Tổng số trang
+    int currentPage = 1;
 
-    printPasswordsList(root->left, start, end, currentIndex, arr);
+    Passwords* passwordArray = treeToArray(root, totalRecords);
 
-    if (currentIndex >= start && currentIndex < end) {
-        arr[currentIndex] = root->data;  // Lưu mật khẩu vào mảng
-        cout << "Password: " << root->data.password << ", Length: " << root->data.length << endl;
+    if (passwordArray == nullptr) {
+        cout << "Khong co du lieu de hien thi." << endl;
+        return;
     }
-    currentIndex++;
 
-    printPasswordsList(root->right, start, end, currentIndex, arr);
+    while (true) {
+        // Tính khoảng bắt đầu và kết thúc của trang hiện tại
+        int start = (currentPage - 1) * recordsPerPage;
+        int end = min(currentPage * recordsPerPage, totalRecords);
+
+        for (int i = start; i < end; ++i) {
+            cout << "Password: " << passwordArray[i].password
+                << ", Length: " << passwordArray[i].length << endl;
+        }
+        cout << "\nTrang " << currentPage << " / " << totalPages << ":" << endl;
+        cout << "--------------------------------\n";
+
+        // In menu điều hướng
+        cout << "\nNhap lua chon:\n";
+        cout << "1. Trang truoc\n";
+        cout << "2. Trang sau\n";
+        cout << "3. Chon trang de sort\n";
+        cout << "4. Thoat\n";
+        cout << "Lua chon: ";
+        int choice;
+        cin >> choice;
+
+        if (choice == 1) {
+            if (currentPage > 1) {
+                currentPage--;
+            }
+            else {
+                cout << "Day la trang dau tien.\n";
+            }
+        }
+        else if (choice == 2) {
+            if (currentPage < totalPages) {
+                currentPage++;
+            }
+            else {
+                cout << "Day la trang cuoi cung.\n";
+            }
+        }
+        else if (choice == 3) {
+            cout << "Nhap trang de sort (1-" << totalPages << "): ";
+            int sortPage;
+            cin >> sortPage;
+
+            if (sortPage >= 1 && sortPage <= totalPages) {
+                start = (sortPage - 1) * recordsPerPage;
+                end = min(sortPage * recordsPerPage, totalRecords);
+
+                cout << "Sap xep tang dan tren trang " << sortPage << ":\n";
+                quickSort(passwordArray + start, 0, end - start - 1);
+
+                for (int i = start; i < end; ++i) {
+                    cout << "Password: " << passwordArray[i].password
+                        << ", Length: " << passwordArray[i].length << endl;
+                }
+            }
+            else {
+                cout << "Trang khong hop le.\n";
+            }
+        }
+        else if (choice == 4) {
+            break;
+        }
+        else {
+            cout << "Lua chon khong hop le.\n";
+        }
+    }
+
+    delete[] passwordArray;
 }
 void flattenTreeToArray(BinaryNode* root, Passwords* arr, int& index, int limit) 
 {
@@ -136,16 +202,18 @@ BinaryNode* insertNode(BinaryNode* root, Passwords newPass)
 
     return root;
 }
-BinaryNode* passWordCheck(BinaryNode* node, const string& passcheck) 
-{
-    if (node == NULL) return NULL;  // Nếu nút trống, trả về nullptr
-    if (node->data.password == passcheck) return node;  // Nếu tìm thấy mật khẩu, trả về con trỏ đến nút
+bool containsSubstring(const string& password, const string& substring) {
+    return password.find(substring) != string::npos;
+}
+void passwordCheck(BinaryNode* node, const string& substring) {
+    if (node == nullptr) return;
 
-    // Duyệt cây theo chiều sâu (DFS)
-    BinaryNode* leftResult = passWordCheck(node->left, passcheck);
-    if (leftResult != NULL) return leftResult;  // Nếu tìm thấy ở cây trái, trả về kết quả
+    if (containsSubstring(node->data.password, substring)) {
+        cout << node->data.password << endl;
+    }
 
-    return passWordCheck(node->right, passcheck);  // Tìm tiếp ở cây phải
+    passwordCheck(node->left, substring);
+    passwordCheck(node->right, substring);
 }
 
 void inOrderPrint(BinaryNode* root) 
@@ -274,23 +342,6 @@ void calculatePasswordStats(Passwords& pass)
 
 void addPassword(BinaryNode*& root, const string& filename, const Passwords& pass) 
 {
-    /*Passwords newPass;
-    cout << "Nhap password moi: ";
-    cin >> newPass.password;
-
-    // Tính toán các thông số của password
-    calculatePasswordStats(newPass);
-
-    // In ra thông tin của password vừa nhập
-    cout << "Mat khau: " << newPass.password << endl;
-    cout << "Do dai: " << newPass.length << endl;
-    cout << "So ki tu: " << newPass.num_chars << endl;
-    cout << "So chu so: " << newPass.num_digits << endl;
-    cout << "So chu thuong: " << newPass.num_lower << endl;
-    cout << "So ky tu dac biet: " << newPass.num_special << endl;
-    cout << "So syllables: " << newPass.num_syllables << endl;
-    cout << "So chu hoa: " << newPass.num_upper << endl;
-    cout << "So nguyen am: " << newPass.num_vowels << endl; */
     // Thêm vào file CSV
     ofstream file(filename, ios::app);
     if (file.is_open()) {
@@ -488,8 +539,8 @@ void Menu(BinaryNode* root, const string& filename)
     int option;
     Passwords passList[MAX_PASS_LENGTH];
     int current_idx = 0;
-    int limited = 0; //limit của ArrList
-    bool case1Flag = false;
+    int recordsPerPage;
+    bool case1Flag = false; 
 
     do {
         cout << "Chon cac hanh dong sau: \n";
@@ -516,18 +567,15 @@ void Menu(BinaryNode* root, const string& filename)
         cout << "-----------------------\n";
         switch (option) {
         case 1: {
-            cout << "Nhap gioi han can in: ";
-            int limit;
-            cin >> limit;
-            limited = limit;
-            current_idx = 0;
-            cout << "First " << limit << " password: \n";
-            printPasswordsList(root, 0, limit, current_idx, passList);
-            case1Flag = true;
-            cout << "Nhan Enter de tiep tuc...";
-            cin.ignore();
-            cin.get();
-            system("cls");
+            cout << "Nhap so dong muon in tren moi trang: ";
+            cin >> recordsPerPage;
+
+            if (recordsPerPage > 0) {
+                printPasswordsListPaged(root, 10000, recordsPerPage);
+            }
+            else {
+                cout << "So dong khong hop le.\n";
+            }
             break;
         }
         case 2: {
@@ -535,25 +583,11 @@ void Menu(BinaryNode* root, const string& filename)
             cout << "Nhap password: ";
             cin >> passcheck;
 
-            // Tìm mật khẩu trong toàn bộ cây
-            BinaryNode* node = passWordCheck(root, passcheck);
+            // In tất cả các mật khẩu phù hợp
+            cout << "Cac password tim duoc:\n";
+            passwordCheck(root, passcheck);
 
-            if (node == nullptr) {
-                cout << "Khong co password can tim.\n";
-            }
-            else {
-                // In ra các thông tin của mật khẩu tìm thấy
-                cout << "Tim thay password: " << node->data.password << endl;
-                cout << "Do dai password: " << node->data.length << endl;
-                cout << "So ki tu: " << node->data.num_chars << endl;
-                cout << "So chu so: " << node->data.num_digits << endl;
-                cout << "So chu thuong: " << node->data.num_lower << endl;
-                cout << "So ky tu dac biet: " << node->data.num_special << endl;
-                cout << "So syllables: " << node->data.num_syllables << endl;
-                cout << "So chu hoa: " << node->data.num_upper << endl;
-                cout << "So nguyen am: " << node->data.num_vowels << endl;
-            }
-
+            // Dừng màn hình để người dùng đọc kết quả
             cout << "Nhan Enter de tiep tuc...";
             cin.ignore();
             cin.get();
@@ -562,61 +596,15 @@ void Menu(BinaryNode* root, const string& filename)
         }
         case 3:
         {
-            if (case1Flag == false)
-            {
-                cout << "Chua co danh sach, vui long chon lai.\n";
-                break;
-            }
-            // Khai báo passListArr trong khối lệnh của case 3
-            Passwords* passListArr = treeToArray(root, limited);
-            if (!passListArr) {
-                cout << "Cay rong hoac khong co du lieu de in.\n";
-                break;
+            cout << "Nhap so dong muon sap xep tren moi trang: ";
+            cin >> recordsPerPage;
+
+            if (recordsPerPage > 0) {
+                printPasswordsListPaged(root, 10000, recordsPerPage);
             }
             else {
-                cout << "Danh sach " << limited << " mat khau dau tien: \n";
-                for (int i = 0; i < limited; ++i) {
-                    cout << "Password: " << passListArr[i].password << ", Length: " << passListArr[i].length << endl;
-                }
+                cout << "So dong khong hop le.\n";
             }
-
-            int sortOption;
-            cout << "Chon kieu sap xep:\n";
-            cout << "1. Sap xep tang dan (Selection Sort)\n";
-            cout << "2. Sap xep giam dan (Quick Sort)\n";
-            cout << "Lua chon: ";
-            cin >> sortOption;
-
-            if (limited == 0) {
-                cout << "Cay rong hoac khong co du lieu de sap xep.\n";
-                break;
-            }
-
-            // Sắp xếp theo yêu cầu
-            if (sortOption == 1) {
-                // Sắp xếp tăng dần (Selection Sort)
-                selectionSort(passListArr, limited);
-                cout << "Danh sach da duoc sap xep tang dan:\n";
-            }
-            else if (sortOption == 2) {
-                // Sắp xếp giảm dần (Quick Sort)
-                quickSort(passListArr, 0, limited - 1);
-                cout << "Danh sach da duoc sap xep giam dan:\n";
-            }
-            else {
-                cout << "Lua chon khong hop le. Vui long thu lai!\n";
-                break;
-            }
-
-            // In danh sách sau khi sắp xếp
-            for (int i = 0; i < limited; ++i) {
-                cout << "Password: " << passListArr[i].password << ", Length: " << passListArr[i].length << endl;
-            }
-
-            cout << "Nhan Enter de tiep tuc...";
-            cin.ignore();
-            cin.get();
-            system("cls");
             break;
         }
         case 4: {
@@ -633,12 +621,6 @@ void Menu(BinaryNode* root, const string& filename)
             break;
         }
         case 5: {
-            /*addPassword();
-            cout << "Nhan Enter de tiep tuc...";
-            cin.ignore();
-            cin.get();
-            system("cls");
-            break;*/
             Passwords pass;
             cout << "Enter password: ";
             cin >> pass.password;
@@ -654,23 +636,6 @@ void Menu(BinaryNode* root, const string& filename)
             break;
         }
         case 6: {
-            /*string passDelete;
-            cout << "Nhap password can xoa: ";
-            cin >> passDelete;
-
-            BinaryNode* searchResult = passWordCheck(root, passDelete);
-            if (searchResult == NULL) {
-                cout << "Khong tim thay mat khau can xoa.\n";
-            }
-            else {
-                root = deletePassword(root, passDelete);
-                cout << "Da xoa thanh cong password: " << passDelete << endl;
-            }
-            cout << "Nhan Enter de tiep tuc...";
-            cin.ignore();
-            cin.get();
-            system("cls");
-            break; */
             string passDelete;
             cout << "Nhap mat khau can xoa: ";
             cin >> passDelete;
