@@ -58,6 +58,7 @@ void filterByLength(BinaryNode* root, int* lengthCount, int maxLength);
 void findPasswordsByLength(BinaryNode* root, int length);
 void drawChart(int* lengthCount, int maxLength, int maxColumnHeight = 20);
 void Menu(BinaryNode* root, const string& filename);
+void printPasswordsList(BinaryNode* root, int start, int end, int& currentIndex, Passwords arr[]); 
 
 
 #endif // BINARY_TREE_H
