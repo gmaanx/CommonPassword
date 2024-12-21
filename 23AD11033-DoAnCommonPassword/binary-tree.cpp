@@ -317,20 +317,40 @@ void calculatePasswordStats(Passwords& pass)
         }
     }
 }
-
-void addPassword(BinaryNode*& root, const string& filename, const Passwords& pass) 
+bool findPassword(BinaryNode* root, const string& password)
 {
+    // Nếu cây rỗng, trả về false
+    if (root == NULL) {
+        return false;
+    }
+    if (root->data.password == password) {
+        return true;
+    }
+    if (password < root->data.password) {
+        return findPassword(root->left, password);
+    }
+    return findPassword(root->right, password);
+}
+void addPassword(BinaryNode*& root, const string& filename, const Passwords& pass)
+{
+    // Kiểm tra xem mật khẩu đã tồn tại chưa
+    if (findPassword(root, pass.password)) {
+        cout << "Mat khau da ton tai.\n";
+        return; 
+    }
+
     // Thêm vào file CSV
-    ofstream file(filename, ios::app);
+    ofstream file;
+    file.open(filename.c_str(), 8); 
     if (file.is_open()) {
         file << pass.password << "," << pass.length << "," << pass.num_chars << ","
             << pass.num_digits << "," << pass.num_upper << "," << pass.num_lower << ","
             << pass.num_special << "," << pass.num_vowels << "," << pass.num_syllables << "\n";
         file.close();
-        cout << "Password added successfully: " << pass.password << "\n";
+        cout << "Them thanh cong: " << pass.password << "\n";
     }
     else {
-        cout << "Error opening file to add password.\n";
+        cout << "Loi khi mo file.\n";
     }
 
     // Thêm vào cây nhị phân
@@ -644,16 +664,25 @@ void Menu(BinaryNode* root, const string& filename)
             break;
         }
         case 5: {
-            Passwords pass;
-            cout << "Enter password: ";
-            cin >> pass.password;
+            cout << "Nhap mat khau muon them: ";
+            string newPassword;
+            cin >> ws; // Loại bỏ khoảng trắng đầu dòng nếu có
+            getline(cin, newPassword); 
 
-            calculatePasswordStats(pass);
-            addPassword(root, filename, pass);
-            cout << "Nhan Enter de tiep tuc...";
-            cin.ignore();
-            cin.get();
-            system("cls");
+            // Kiểm tra mật khẩu có chứa khoảng trắng hay không
+            size_t viTri = newPassword.find(' ');
+            if (viTri != string().npos) { 
+                cout << "Mat khau khong duoc chua khoang trang. Vui long thu lai.\n";
+                break;
+            }
+
+            // Tạo đối tượng Passwords mới
+            Passwords newPass;
+            newPass.password = newPassword;
+            calculatePasswordStats(newPass);
+
+            // Thêm vào cây và file CSV
+            addPassword(root, filename, newPass);
             break;
         }
         case 6: {
